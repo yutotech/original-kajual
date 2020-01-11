@@ -1,0 +1,15 @@
+<% if current_user %>
+    <div class="media">
+        <img class="mr-2 rounded mb-5" src="<%= gravatar_url(current_user, {size:95}) %>" alt="">
+        <div class="media-body">
+            <%= link_to current_user.name, user_path(current_user), class: "font-weight-bold lead" %>
+            <div>
+                <%= link_to "家事の追加", new_housework_path, class: "btn btn-primary btn-sm mb-1" %>
+            </div>
+            <div>
+                <%= link_to "スケジュールの追加", new_housework_schedule_path, class: "btn btn-success btn-sm mb-1" %>
+            </div>
+        </div>
+        
+    </div>    
+<% end %>

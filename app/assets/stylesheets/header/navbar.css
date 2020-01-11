@@ -1,0 +1,8 @@
+.navbar {
+    z-index: 10;
+    background-color: rgba(105, 105, 105, 0.9)!important;
+}
+
+.header-logo {
+    width: 85px;
+}

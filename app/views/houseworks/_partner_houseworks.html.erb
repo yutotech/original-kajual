@@ -1,0 +1,18 @@
+<table class="table table-sm table-bordered">
+    <thead>
+        <tr class="table-active">
+            <th class="text-center">項目</th>
+            <th class="text-center">目標</th>
+            <th class="text-center">頻度</th>
+        </th>
+    </thead>
+    <tbody>
+        <% partner_houseworks&.each do |partner_housework| %>
+            <tr>
+                <th><%= partner_housework.name %></th>
+                <th><%= partner_housework.goal %>回</th>
+                <th><%= partner_housework.frequency %></th>
+            </tr>
+        <% end %>                
+    </tbody>
+</table>

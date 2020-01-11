@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    color: #426579;
+    font-family: 'Kosugi', sans-serif;
+}
+
+.wrapper-title {
+    font-weight: bold;
+}
+
+.wrapper-title span{
+    border-bottom: solid 5px #87CEFA;
+}
+
+.wrapper-subtitle {
+    color: #6495ed;
+}
+
+.wrapper-subtitle.br-2 {
+    display: none;
+}
+
+/*==========Top Wrapper==========*/
+.top-content {
+    background-image: url("/assets/the-creative-exchange-cpIgNaazQ6w-unsplash.jpg"); /*③背景画像を指定*/
+    background-size: cover;
+    height: 800px;
+    background-position: top;
+    background-attachment: fixed;
+    position: relative; /*④relativeを指定しておく*/
+}
+
+/*⑤画像に黒っぽく且つ透過性を持たせる為(画像に黒いフィルムを載せるイメージ)、擬似要素(::before)にてCSS設定*/
+.top-content::before {
+    content: " "; /*⑥top-messageのabsoluteにより、top-content::beforeも大きさがなくなってしまっている為、フィルムを表示させる目的で空のテキストを準備*/
+    background-color: rgba(0,0,0,.3); /*⑦フィルムの色と透過性を指定*/
+    position: absolute; /*⑧浮かせて下記のtop,bottom,左右(margin)を指定する為*/
+    top:0;
+    bottom:0;
+    right:0; 
+    left:0; /*⑨top,bottom,right,leftを0,とすることで丁度画像と同様の大きさになる*/
+}
+
+.top-message {
+    width: 100%;
+    max-width: 100%;
+    position: absolute; /*⑩absoluteとすることでtop-messageクラス内のh1やpが浮く為、暗くならない*/
+    top: 40%;
+}
+
+.top-message h1 {
+    color: white; /*テキストの色はお好みで*/
+}
+/*==========Top Wrapper END==========*/
+
+/*==========Example Wrapper==========*/
+.carousel-image {
+    width: 100%;
+	object-fit: cover;
+    height: 330px;
+}
+
+.carousel-caption.third-caption{
+    color: #426579;
+}
+
+.br-2, .br-3, .br-4 {
+    display: none;
+}
+
+/*==========Example Wrapper END==========*/
+
+/*==========Indtroduction-wrapper==========*/
+.introduction-wrapper {
+    background-color: #deb887;
+}
+.contents {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding: 0px 300px 50px 300px;
+}
+
+.contents:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.contents-text { 
+    width: 45%; 
+}
+
+.contents-image {
+	width: 50%;
+}
+
+.contents-image img {
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/*==========Indtroduction-wrapper END==========*/
+
+/*==========Inquiry Wrapper==========*/
+input, textarea {
+    width: 100%;
+}
+/*==========Inquiry Wrapper END==========*/
+
+
+
+
+
+
+/*==========Responsive Design==========*/
+/*タブレット用*/
+@media all and (max-width: 1000px) {
+    /*==========Top Wrapper==========*/
+    .top-message h1 {
+        font-size: 80px;
+    }
+    /*==========Top Wrapper==========*/
+    
+    /*==========Example Wrapper==========*/
+    .carousel-image {
+        width: 100%;
+    	object-fit: cover;
+        height: 230px;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 18px;
+    }
+    
+    .br-1, .br-3 {
+        display: none;
+    }
+    
+    .br-2, .br-4{
+        display: block;
+    }
+    /*==========Example Wrapper==========*/
+    
+    /*==========Introduction Wrapper==========*/
+    .contents-text { 
+        width: 50%; 
+    }
+
+    .contents-image {
+    	width: 45%; 
+    }
+    
+    .contents {
+        padding: 0 20px;
+    } 
+    /*==========Introduction Wrapper==========*/
+}
+
+/*スマホ用*/
+@media all and (max-width: 670px) {
+    /*==========Top Wrapper==========*/
+    .clear_top-content {
+        background-attachment: initial;
+    }
+    
+    .top-content {
+        height: 500px;
+    }
+    
+    .top-message h1 {
+        font-size: 40px;
+    }
+    /*==========Top Wrapper END==========*/
+    
+    /*==========Example Wrapper==========*/
+    .carousel-image {
+        width: 100%;
+    	object-fit: cover;
+        height: 230px;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 16px;
+    }
+    
+    .carousel-caption.br-1 {
+        display: none;
+    }
+    /*==========Example Wrapper END==========*/
+    
+    /*==========Introduction Wrapper==========*/
+    .introduction-wrapper ul {
+        padding: 0;
+    }
+    .contents {
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+    
+    
+    .contents-text h4 {
+        font-size: 17px;
+    }
+    
+    .contents-text p {
+        font-size: 14px;
+    }
+    
+    .contents-text { 
+        width: 50%; 
+    }
+
+    .contents-image {
+	    width: 45%; 
+    }
+    
+    .wrapper-subtitle .br-1 {
+        display: none;
+    }
+    /*==========Introduction Wrapper END==========*/
+}
+/*==========Responsive Design END==========*/

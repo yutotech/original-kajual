@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="text-center pt-5 mb-5">
+        <h1>スケジュール</h1>
+        <h1><%= Time.now.strftime("%Y年%m月%d日(#{@wd[@time.wday]})") %></h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>スケジュールの追加</h3>
+            
+            <%= form_with(model: @current_user_housework_schedule, local: true) do |f| %>
+    
+                <div class="form-group">
+                    <%= f.label :housework_id, "項目" %>
+                    <%= f.collection_select :housework_id, @current_user_houseworks, :id, :name, {prompt: "家事を選択してください"} %>
+                </div>
+                
+                <div class="form-group">
+                    <%= f.label :description, "説明" %>
+                    <%= f.text_field :description, class: "form-control" %>
+                </div>
+                
+                <div class="form-group">
+                    <%= f.label :started_at, "開始日時" %>
+                    <%= f.datetime_field :started_at, class: "form-control" %>
+                </div>
+                
+                <div class="form-group">
+                    <%= f.label :ended_at, "終了日時"  %>
+                    <%= f.datetime_field :ended_at, class: "form-control" %>
+                </div>
+                
+                <%= f.submit "追加", class: "btn btn-primary btn-block" %>
+                
+            <% end %>            
+        </div>
+        
+         <div class="col-sm-8">
+            <%= render "users/current_user" %>
+            <%= render "housework_schedules/current_user_housework_schedules", current_user_scheduled_houseworks: @current_user_scheduled_houseworks %>
+        </div>
+    </div>
+</div>

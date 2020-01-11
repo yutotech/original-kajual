@@ -1,0 +1,8 @@
+<% if partner %>
+    <div class="media">
+        <img class="mr-2 rounded mb-5" src="<%= gravatar_url(partner, {size:95}) %>" alt="">
+        <div class="media-body">
+            <span class="font-weight-bold lead"><%= partner.name %><span>
+        </div>
+    </div>    
+<% end %>

@@ -1,0 +1,9 @@
+<% current_user_scheduled_houseworks.each do |current_user_scheduled_housework| %>
+    <div class="card bg-light mb-2">
+        <div class="card-body">
+            <p class="card-title text-primary font-weight-bold"><%= current_user_scheduled_housework.housework.name %></p>
+            <p class="card-subtitle text-muted"><%= current_user_scheduled_housework.description %></p>
+            <p class="card-text"><%= current_user_scheduled_housework.started_at.strftime("%Y/%m/%d(#{@wd[current_user_scheduled_housework.started_at.wday]}) %H:%M") %>〜<%= current_user_scheduled_housework.ended_at.strftime("%Y/%m/%d(#{@wd[current_user_scheduled_housework.ended_at.wday]}) %H:%M") %></p>
+        </div>
+    </div>
+<% end %>

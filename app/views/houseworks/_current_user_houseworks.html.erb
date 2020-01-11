@@ -1,0 +1,20 @@
+<table class="table table-sm table-bordered">
+    <thead>
+        <tr class="table-active">
+            <th class="text-center">項目</th>
+            <th class="text-center">目標</th>
+            <th class="text-center">頻度</th>
+            <th></th>
+        </th>
+    </thead>
+    <tbody>
+        <% current_user_houseworks.each do |current_user_housework| %>
+            <tr>
+                <th><%= current_user_housework.name %></th>
+                <th><%= current_user_housework.goal %>回</th>
+                <th><%= current_user_housework.frequency %></th>
+                <th><%= link_to "削除", housework_path(current_user_housework), data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger", method: :delete %></th>
+            </tr>
+        <% end %>                
+    </tbody>
+</table>

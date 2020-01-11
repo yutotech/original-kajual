@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="text-center pt-5 mb-5">
+        <h1>ユーザ詳細</h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <%= render "users/current_user" %>
+    
+            <h3>今月の達成度</h3>
+            <table class="table table-sm table-bordered">
+                <thead>
+                    <tr class="table-active">
+                        <th class="text-center">項目</th>
+                        <th class="text-center">目標</th>
+                        <th class="text-center">実績</th>
+                        <th class="text-center">達成度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @current_user_houseworks.each do |current_user_housework| %>
+                    
+                        <tr>
+                            <th><%= current_user_housework.name %></th>
+                            <th><%= current_user_housework.goal %>回</th>
+                            <th><%= @current_user_housework_schedules.where(housework_id: current_user_housework.id, started_at: Time.now.beginning_of_month..Time.now.end_of_month).count %>回</th>
+                            <th><%= @current_user_housework_schedules.where(housework_id: current_user_housework.id, started_at: Time.now.beginning_of_month..Time.now.end_of_month).count.to_f / current_user_housework.goal.to_f * 100 %>%</th>
+                        </tr>
+                        
+                    <% end %>        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
